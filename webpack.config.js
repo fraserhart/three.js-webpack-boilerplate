@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SassLintPlugin = require('sasslint-webpack-plugin');
+
 module.exports = {
   entry: './src/app.js',
   output: {
@@ -28,6 +30,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
+    }),
+    new SassLintPlugin({
+      glob: 'src/**/*.s?(a|c)ss',
     }),
   ],
 };
