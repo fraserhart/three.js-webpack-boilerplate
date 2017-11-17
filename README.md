@@ -1,4 +1,4 @@
-#three.js boilerplate
+# three.js boilerplate
 * webpack
 * webpack-dev-server
 * three.js
@@ -6,14 +6,14 @@
 * sasslint
 * Jest
 
-##Setup
+## Setup
 `npm install`
 
-##Test
+## Test
 `npm test`
 
-##Dev
+## Dev
 `npm run start`
 
-##Build
+## Build
 `npm run build`
