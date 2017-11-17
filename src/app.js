@@ -20,10 +20,10 @@ scene.add(line);
 const animate = () => {
   requestAnimationFrame(animate);
 
-  // cube.rotation.x += 0.1;
-  // cube.rotation.y += 0.1;
-  //
-  // line.rotation.y += 0.1;
+  cube.rotation.x += 0.03;
+  cube.rotation.y += 0.03;
+
+  line.rotation.y += 0.03;
 
   if (camera.fov < 20) {
     fovMultiplier = 1.01;
