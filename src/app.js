@@ -3,7 +3,7 @@ import './assets/scss/styles.scss';
 import line from './objects/line';
 import cube from './objects/cube';
 
-let zoomMultiplier = 0.99;
+let fovMultiplier = 0.99;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
 camera.position.set(0, 0, 100);
@@ -26,12 +26,12 @@ const animate = () => {
   // line.rotation.y += 0.1;
 
   if (camera.fov < 20) {
-    zoomMultiplier = 1.01;
+    fovMultiplier = 1.01;
   } else if (camera.fov > 50) {
-    zoomMultiplier = 0.99;
+    fovMultiplier = 0.99;
   }
 
-  camera.fov *= zoomMultiplier;
+  camera.fov *= fovMultiplier;
   camera.updateProjectionMatrix();
 
   renderer.render(scene, camera);
