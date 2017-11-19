@@ -3,6 +3,8 @@ import './assets/scss/styles.scss';
 import line from './objects/line';
 import cube from './objects/cube';
 
+const StereoEffect = require('three-stereo-effect')(THREE);
+
 let fovMultiplier = 0.99;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
@@ -12,6 +14,10 @@ camera.lookAt(new THREE.Vector3(0, 0, 0));
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
+const stereoEffect = new StereoEffect(renderer);
+stereoEffect.eyeSeparation = 1;
+stereoEffect.setSize(window.innerWidth, window.innerHeight);
 
 scene.add(cube);
 
@@ -34,7 +40,7 @@ const animate = () => {
   camera.fov *= fovMultiplier;
   camera.updateProjectionMatrix();
 
-  renderer.render(scene, camera);
+  stereoEffect.render(scene, camera);
 };
 
 animate();
