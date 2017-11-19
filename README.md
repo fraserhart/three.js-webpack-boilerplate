@@ -1,7 +1,11 @@
-# three.js boilerplate
+# three.js cardboard VR boilerplate
+
+Three.js cardboard VR boilerplate with:
+
 * webpack
 * webpack-dev-server
 * three.js
+* three stereo effect (https://github.com/Samsy/three-stereo-effect)
 * eslint (airbnb configs)
 * sasslint
 * Jest
