@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import './assets/scss/styles.scss';
 import line from './objects/line';
 import cube from './objects/cube';
+import chopper from './assets/chopper/chopper.json';
 
 const StereoEffect = require('three-stereo-effect')(THREE);
 
@@ -19,6 +20,12 @@ const stereoEffect = new StereoEffect(renderer);
 stereoEffect.eyeSeparation = 1;
 stereoEffect.setSize(window.innerWidth, window.innerHeight);
 
+const loader = new THREE.ObjectLoader();
+const model = loader.parse(chopper);
+model.scale.set(3, 3, 3);
+
+scene.add(model);
+
 scene.add(cube);
 
 scene.add(line);
@@ -31,9 +38,9 @@ const animate = () => {
 
   line.rotation.y += 0.03;
 
-  if (camera.fov < 20) {
+  if (camera.fov < 15) {
     fovMultiplier = 1.01;
-  } else if (camera.fov > 50) {
+  } else if (camera.fov > 35) {
     fovMultiplier = 0.99;
   }
 
@@ -42,5 +49,6 @@ const animate = () => {
 
   stereoEffect.render(scene, camera);
 };
+
 
 animate();
